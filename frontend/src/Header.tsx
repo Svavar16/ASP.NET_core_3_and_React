@@ -1,4 +1,4 @@
-import React from "react";
+/** @jsx jsx */
 import { UserIcon } from "./Icons";
 import { css, jsx } from "@emotion/core";
 import { fontFamily, fontSize, gray1, gray2, gray5 } from "./Styles";
@@ -18,7 +18,16 @@ export const Header = () => (
 			border-bottom: 1px solid ${gray5};
 			box-shadow: 0 3px 7px 0 rgba(110, 112, 114, 0.21);
 		`}>
-		<a href="./">Q and A</a>
+		<a
+			href="./"
+			css={css`
+				font-size: 24px;
+				font-weight: bold;
+				color: ${gray1};
+				text-decoration: none;
+			`}>
+			Q and A
+		</a>
 		<input
 			type="text"
 			placeholder="Search..."

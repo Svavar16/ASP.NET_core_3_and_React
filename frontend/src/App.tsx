@@ -1,4 +1,4 @@
-import React from "react";
+/** @jsx jsx */
 import { Header } from "./Header";
 import { HomePage } from "./HomePage";
 import { css, jsx } from "@emotion/core";
