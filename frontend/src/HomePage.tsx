@@ -26,6 +26,6 @@ export const HomePage = () => (
 			</h2>
 			<PrimaryButton>Ask a Question</PrimaryButton>
 		</div>
-		<QuestionList data={getUnansweredQuestions()} />
+		{/*<QuestionList data={getUnansweredQuestions()} />*/}
 	</Page>
 );
