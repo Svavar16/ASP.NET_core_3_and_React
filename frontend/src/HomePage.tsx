@@ -2,12 +2,17 @@
 import { css, jsx } from "@emotion/core";
 import { PrimaryButton } from "./Styles";
 import { QuestionList } from "./QuestionList";
-import { getUnansweredQuestions } from "./QuestionsData";
+import { getUnansweredQuestions, QuestionData } from "./QuestionsData";
 import { Page } from "./Page";
 import { PageTitle } from "./PageTitle";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export const HomePage = () => {
+	const [questions, setQuestions] = useState<QuestionData[] | null>(null);
+	const [questionsLoading, setQuestionsLoading] = useState(true);
+	useEffect(() => {
+		const questions = await getUnansweredQuestions();
+	}, []);
 	return (
 		<Page>
 			<div
@@ -16,16 +21,8 @@ export const HomePage = () => {
 					align-items: center;
 					justify-content: space-between;
 				`}>
-				<h2
-					css={css`
-						font-size: 15px;
-						font-weight: bold;
-						margin: 10px 0px 5px;
-						text-align: center;
-						text-transform: uppercase;
-					`}>
-					<PageTitle>Unanswered Questions</PageTitle>
-				</h2>
+				<PageTitle>Unanswered Questions</PageTitle>
+
 				<PrimaryButton>Ask a Question</PrimaryButton>
 			</div>
 			{/*<QuestionList data={getUnansweredQuestions()} />*/}
